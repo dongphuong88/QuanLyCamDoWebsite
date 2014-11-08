@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <group Text="Giá Vàng" NavigateUrl="./GiaVang.aspx"/>
+  <group Text="Cầm Đồ" NavigateUrl="./CamDo">
+    <item Text="Phiếu Cầm Mới" NavigateUrl="./CamDo/PhieuCamMoi.aspx" />
+    <item Text="Thống Kê Thu Chi"  NavigateUrl="./CamDo/ThongKe.aspx" />
+    <item Text="Thống Kê Tiền Cầm"  NavigateUrl="./CamDo/ThongKeTienCam.aspx" />
+    <item Text="Kiểm Tra Quá Hạn"  NavigateUrl="./CamDo/QuaHan.aspx" />
+  </group>
+  <group Text="Nhập Hàng" NavigateUrl="./NhapXuat"/>
+  <group Text="Mua Bán" NavigateUrl="./MuaBan"/>
+</menu>

@@ -1,0 +1,1 @@
+<%@ Application Codebehind="Global.asax.cs" Inherits="QuanLy.Global_asax" Language="C#" %>
