@@ -18,6 +18,15 @@
     <script type="text/javascript">
         // <![CDATA[
         function ShowLoginWindow() {
+                modalMua24K.SetValue(mua24K.GetValue());
+                modalBan24K.SetValue(ban24K.GetValue());
+                modalMua24KKH.SetValue(mua24KKH.GetValue());
+                modalBan24KKH.SetValue(ban24KKH.GetValue());
+                modalMua18K.SetValue(mua18K.GetValue());
+                modalBan18K.SetValue(ban18K.GetValue());
+                modalLaiSuat.SetValue(laiSuat.GetValue());
+                modalNgayHen.SetValue(ngayHen.GetValue());
+                
             pcEdit.Show();
         }
         // ]]> 
@@ -28,6 +37,9 @@
         
     <dx:ASPxSplitter ID="ASPxSplitter1" runat="server" AllowResize="False" Orientation="Vertical"
         FullscreenMode="True" SeparatorVisible="False" Height="100%" Width="100%">
+        <ClientSideEvents Init="function(s, e) {
+	pcEdit.Hide();
+}" />
         <Styles>
             <Pane>
                 <Paddings Padding="0px" />
@@ -48,10 +60,10 @@
                             <div class="loginControl">
                                 <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" DataSourceID="SqlDataSourcePawnConfig" ColCount="5" Width="300px" ClientInstanceName="muaBanForm">
                                     <Items>
-                                        <dx:LayoutItem Caption="Mua 24K Nhẫn" FieldName="GoldPriceBuy24K">
+                                        <dx:LayoutItem Caption="Mua 24K" FieldName="GoldPriceBuy24K">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer runat="server">
-                                                    <dx:ASPxSpinEdit ID="ASPxFormLayout1_E3" runat="server" DisplayFormatString="{0:N0}.000" Enabled="False" HorizontalAlign="Right" Number="0" Width="80px" ClientInstanceName="mua24K">
+                                                    <dx:ASPxSpinEdit ID="formMua24K" runat="server" DisplayFormatString="{0:N0}.000" Enabled="False" HorizontalAlign="Right" Number="0" Width="80px" ClientInstanceName="mua24K">
                                                         <SpinButtons ShowIncrementButtons="False">
                                                         </SpinButtons>
                                                         <DisabledStyle ForeColor="Black">
@@ -60,10 +72,10 @@
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="Mua 24K" FieldName="GoldPriceBuy24KKH">
+                                        <dx:LayoutItem Caption="Mua Nữ Trang 24K" FieldName="GoldPriceBuy24KKH">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer runat="server">
-                                                    <dx:ASPxSpinEdit ID="ASPxFormLayout1_E5" runat="server" DisplayFormatString="{0:N0}.000" Enabled="False" HorizontalAlign="Right" Number="0" Width="80px" ClientInstanceName="mua24KKH">
+                                                    <dx:ASPxSpinEdit ID="formMua24KKH" runat="server" DisplayFormatString="{0:N0}.000" Enabled="False" HorizontalAlign="Right" Number="0" Width="80px" ClientInstanceName="mua24KKH">
                                                         <SpinButtons ShowIncrementButtons="False">
                                                         </SpinButtons>
                                                         <DisabledStyle ForeColor="Black">
@@ -75,7 +87,7 @@
                                         <dx:LayoutItem Caption="Mua 18K" FieldName="GoldPirceBuy18K">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer runat="server">
-                                                    <dx:ASPxSpinEdit ID="ASPxFormLayout1_E7" runat="server" DisplayFormatString="{0:N0}.000" Enabled="False" HorizontalAlign="Right" Number="0" Width="80px" ClientInstanceName="mua18K">
+                                                    <dx:ASPxSpinEdit ID="formMua18K" runat="server" DisplayFormatString="{0:N0}.000" Enabled="False" HorizontalAlign="Right" Number="0" Width="80px" ClientInstanceName="mua18K">
                                                         <SpinButtons ShowIncrementButtons="False">
                                                         </SpinButtons>
                                                         <DisabledStyle ForeColor="Black">
@@ -87,7 +99,7 @@
                                         <dx:LayoutItem Caption="Lãi suất" FieldName="LaiSuat">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer runat="server">
-                                                    <dx:ASPxSpinEdit ID="ASPxFormLayout1_E2" runat="server" DisplayFormatString="N2" Enabled="False" HorizontalAlign="Right" Number="0" Width="50px" ClientInstanceName="laiSuat">
+                                                    <dx:ASPxSpinEdit ID="formLaiSuat" runat="server" DisplayFormatString="N2" Enabled="False" HorizontalAlign="Right" Number="0" Width="50px" ClientInstanceName="laiSuat">
                                                         <SpinButtons ShowIncrementButtons="False">
                                                         </SpinButtons>
                                                         <DisabledStyle ForeColor="Black">
@@ -107,10 +119,10 @@
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="Bán 24K Nhẫn" FieldName="GoldPriceSell24K">
+                                        <dx:LayoutItem Caption="Bán 24K" FieldName="GoldPriceSell24K">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer runat="server">
-                                                    <dx:ASPxSpinEdit ID="ASPxFormLayout1_E4" runat="server" DisplayFormatString="{0:N0}.000" Enabled="False" HorizontalAlign="Right" Number="0" Width="80px" ClientInstanceName="ban24K">
+                                                    <dx:ASPxSpinEdit ID="formBan24K" runat="server" DisplayFormatString="{0:N0}.000" Enabled="False" HorizontalAlign="Right" Number="0" Width="80px" ClientInstanceName="ban24K">
                                                         <SpinButtons ShowIncrementButtons="False">
                                                         </SpinButtons>
                                                         <DisabledStyle ForeColor="Black">
@@ -119,10 +131,10 @@
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="Bán 24K" FieldName="GoldPriceSell24KKH">
+                                        <dx:LayoutItem Caption="Bán Nữ Trang 24K" FieldName="GoldPriceSell24KKH">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer runat="server">
-                                                    <dx:ASPxSpinEdit ID="ASPxFormLayout1_E6" runat="server" DisplayFormatString="{0:N0}.000" Enabled="False" HorizontalAlign="Right" Number="0" Width="80px" ClientInstanceName="ban24KKH">
+                                                    <dx:ASPxSpinEdit ID="formBan24KKH" runat="server" DisplayFormatString="{0:N0}.000" Enabled="False" HorizontalAlign="Right" Number="0" Width="80px" ClientInstanceName="ban24KKH">
                                                         <SpinButtons ShowIncrementButtons="False">
                                                         </SpinButtons>
                                                         <DisabledStyle ForeColor="Black">
@@ -134,7 +146,7 @@
                                         <dx:LayoutItem Caption="Bán 18K" FieldName="GoldPriceSell18K">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer runat="server">
-                                                    <dx:ASPxSpinEdit ID="ASPxFormLayout1_E8" runat="server" Enabled="False" HorizontalAlign="Right" Number="0" Width="80px" DisplayFormatString="{0:N0}.000" ClientInstanceName="ban18K">
+                                                    <dx:ASPxSpinEdit ID="formBan18K" runat="server" Enabled="False" HorizontalAlign="Right" Number="0" Width="80px" DisplayFormatString="{0:N0}.000" ClientInstanceName="ban18K">
                                                         <SpinButtons ShowIncrementButtons="False">
                                                         </SpinButtons>
                                                         <DisabledStyle ForeColor="Black">
@@ -146,7 +158,7 @@
                                         <dx:LayoutItem Caption="Cầm đồ ngày hẹn" FieldName="SoNgayQuaHan">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer runat="server">
-                                                    <dx:ASPxSpinEdit ID="ASPxFormLayout1_E1" runat="server" Enabled="False" HorizontalAlign="Right" Number="0" Width="50px" ClientInstanceName="ngayHen">
+                                                    <dx:ASPxSpinEdit ID="formSoNgayHen" runat="server" Enabled="False" HorizontalAlign="Right" Number="0" Width="50px" ClientInstanceName="ngayHen">
                                                         <SpinButtons ShowIncrementButtons="False">
                                                         </SpinButtons>
                                                         <DisabledStyle ForeColor="Black">
@@ -177,7 +189,7 @@
                                     <dx:LayoutItem Caption="Mua 24K Nhẫn" FieldName="GoldPriceBuy24K" VerticalAlign="Middle">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxSpinEdit ID="seBuy24K" runat="server" DisplayFormatString="N0" Font-Size="Large" HorizontalAlign="Right" Number="0" NumberType="Integer" NullText="0" ClientInstanceName="modalMua24K">
+                                                <dx:ASPxSpinEdit ID="seBuy24K" runat="server" DisplayFormatString="N0" Font-Size="Large" HorizontalAlign="Right" Number="0" NumberType="Integer" ClientInstanceName="modalMua24K">
                                                     <ClientSideEvents KeyPress="function(s, e) {
 	if(e.htmlEvent.keyCode == 13) {
             ASPxClientUtils.PreventEventAndBubble(e.htmlEvent);
@@ -194,7 +206,6 @@
                                                         </DisabledStyle>
                                                     </ButtonStyle>
                                                     <ValidationSettings ValidationGroup="GiaVangValidation">
-                                                        <RequiredField IsRequired="True" />
                                                     </ValidationSettings>
                                                 </dx:ASPxSpinEdit>
                                             </dx:LayoutItemNestedControlContainer>
@@ -217,7 +228,6 @@
                                                         </DisabledStyle>
                                                     </ButtonStyle>
                                                     <ValidationSettings ValidationGroup="GiaVangValidation">
-                                                        <RequiredField IsRequired="True" />
                                                     </ValidationSettings>
                                                 </dx:ASPxSpinEdit>
                                             </dx:LayoutItemNestedControlContainer>
@@ -239,9 +249,6 @@
                                                         <DisabledStyle ForeColor="Black">
                                                         </DisabledStyle>
                                                     </ButtonStyle>
-                                                    <ValidationSettings>
-                                                        <RequiredField IsRequired="True" />
-                                                    </ValidationSettings>
                                                 </dx:ASPxSpinEdit>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
@@ -268,7 +275,6 @@
                                                         </DisabledStyle>
                                                     </ButtonStyle>
                                                     <ValidationSettings ValidationGroup="GiaVangValidation">
-                                                        <RequiredField IsRequired="True" />
                                                     </ValidationSettings>
                                                 </dx:ASPxSpinEdit>
                                             </dx:LayoutItemNestedControlContainer>
@@ -296,7 +302,6 @@
                                                         </DisabledStyle>
                                                     </ButtonStyle>
                                                     <ValidationSettings ValidationGroup="GiaVangValidation">
-                                                        <RequiredField IsRequired="True" />
                                                     </ValidationSettings>
                                                 </dx:ASPxSpinEdit>
                                             </dx:LayoutItemNestedControlContainer>
@@ -324,7 +329,6 @@
                                                         </DisabledStyle>
                                                     </ButtonStyle>
                                                     <ValidationSettings ValidationGroup="GiaVangValidation">
-                                                        <RequiredField IsRequired="True" />
                                                     </ValidationSettings>
                                                 </dx:ASPxSpinEdit>
                                             </dx:LayoutItemNestedControlContainer>
@@ -342,7 +346,6 @@
         }
 }" />
                                                     <ValidationSettings ValidationGroup="GiaVangValidation">
-                                                        <RequiredField IsRequired="True" />
                                                     </ValidationSettings>
                                                 </dx:ASPxSpinEdit>
                                             </dx:LayoutItemNestedControlContainer>
@@ -360,7 +363,6 @@
         }
 }" />
                                                     <ValidationSettings ValidationGroup="GiaVangValidation">
-                                                        <RequiredField IsRequired="True" />
                                                     </ValidationSettings>
                                                 </dx:ASPxSpinEdit>
                                             </dx:LayoutItemNestedControlContainer>
@@ -373,22 +375,8 @@
                                     <dx:LayoutItem Caption="" ColSpan="2">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxButton ID="ASPxFormLayout2_E9" UseSubmitBehavior="true" runat="server" Font-Size="Large" Height="50px" Text="Xác Nhận" Width="200px" CausesValidation="False" AutoPostBack="False">
-                                                <ClientSideEvents Click="function(s, e) { 
-if( ASPxClientEdit.ValidateGroup('GiaVangValidation'))
-{
-                                                    mua24K.SetValue(modalMua24K.GetValue());
-                                                    ban24K.SetValue(modalBan24K.GetValue());
-                                                    mua24KKH.SetValue(modalMua24KKH.GetValue());
-                                                    ban24KKH.SetValue(modalBan24KKH.GetValue());
-                                                    mua18K.SetValue(modalMua18K.GetValue());
-                                                    ban18K.SetValue(modalBan18K.GetValue());
-                                                    laiSuat.SetValue(modalLaiSuat.GetValue());
-                                                    ngayHen.SetValue(modalNgayHen.GetValue());
-    cb.PerformCallback();
-	pcEdit.Hide(); 
-}
-}" />
+                                                <dx:ASPxButton ID="ASPxFormLayout2_E9" UseSubmitBehavior="true" runat="server" Font-Size="Large" Height="50px" Text="Xác Nhận" Width="200px" CausesValidation="False" OnClick="ASPxFormLayout2_E9_Click" AutoPostBack="False">
+                                                
                                                     
                                                 </dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
@@ -398,18 +386,12 @@ if( ASPxClientEdit.ValidateGroup('GiaVangValidation'))
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer runat="server">
                                                 <dx:ASPxButton ID="ASPxFormLayout2_E10" runat="server" Font-Size="Large" Text="Quay Lại" CausesValidation="False" UseSubmitBehavior="False" AutoPostBack="False">
-                                                <ClientSideEvents Click="function(s, e) 
-                                                    { 
-                                                        modalMua24K.SetValue(mua24K.GetValue());
-                                                        modalBan24K.SetValue(ban24K.GetValue());
-                                                        modalMua24KKH.SetValue(mua24KKH.GetValue());
-                                                        modalBan24KKH.SetValue(ban24KKH.GetValue());
-                                                        modalMua18K.SetValue(mua18K.GetValue());
-                                                        modalBan18K.SetValue(ban18K.GetValue());
-                                                        modalLaiSuat.SetValue(laiSuat.GetValue());
-                                                        modalNgayHen.SetValue(ngayHen.GetValue());
-                                                        pcEdit.Hide(); 
-                                                    }" />
+                                                
+                                                    
+                                                    <ClientSideEvents Click="function(s, e) {
+	pcEdit.Hide();
+}" />
+                                                
                                                     
                                                 </dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
@@ -417,10 +399,6 @@ if( ASPxClientEdit.ValidateGroup('GiaVangValidation'))
                                     </dx:LayoutItem>
                                 </Items>
                             </dx:ASPxFormLayout>
-                            <dx:ASPxCallbackPanel ID="cb" ClientInstanceName="cb" runat="server" Width="200px" OnCallback="cb_Callback"><PanelCollection>
-<dx:PanelContent runat="server"></dx:PanelContent>
-</PanelCollection>
-                            </dx:ASPxCallbackPanel>
                         </dx:PanelContent>
                     </PanelCollection>
                 </dx:ASPxPanel>
